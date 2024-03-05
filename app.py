@@ -32,7 +32,7 @@ def home():
 
     # Initialize variables to store the title and image
     main_text = ''
-    img_link = ''
+    img_linkss = ''
     hyperlink = ''
 
     # Find the main text and image
@@ -42,7 +42,7 @@ def home():
 
     img_tag = soup.find('img')
     if img_tag and 'src' in img_tag.attrs:
-        img_link = img_tag['src']
+        img_linkss = img_tag['src']
 
     a_tag = soup.find('a', class_='post-block__title__link')
     if a_tag and 'href' in a_tag.attrs:
@@ -50,51 +50,59 @@ def home():
     
 
 
-    url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
+    # url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
+    url3='https://www.prnewswire.com/news-releases/entertainment-media-latest-news/entertainment-media-latest-news-list/?page=1&pagesize=100'
     r3 = requests.get(url3)
     html_content3 = r3.text
     soup3 = BeautifulSoup(html_content3, 'html.parser')
 
 
-    # To extract the headline, assuming it's within an <h3> tag.
-    headline_tags = soup3.find_all('h3')
+    
+    div=soup3.find_all('div',class_="row newsCards")
+    result = []
 
+    all_dates=[]
+    all_headlines=[]
+    all_news_urls=[]
+    all_img_urls=[]
+    for i in div:
+        title=i.find('h3')
+        headlines = i.get_text(strip=True) 
+        dates = ''
+        titles = ''
 
-    # # img_tags = soup.find_all('img')
-    # # # Extract the 'src' attribute from each <img> tag
-    # # img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
-
-    # Extract the text from each headline tag.
-    headlines = [tag.get_text(strip=True) for tag in headline_tags]
-    h=[]
-    for i in range(len(headlines)):
-        h.append(headlines[i])
-        if i>=99:
-            break
-
-    news_links = soup3.find_all('a', class_='newsreleaseconsolidatelink')
-
-    # Extract the 'href' attribute from each <a> tag
-    news_urls = ['https://www.prnewswire.com'+link['href'] for link in news_links if 'href' in link.attrs]
-
-    dates = []
-    titles = []
-
-    for item in h:
+    
         # Split the string into two parts at the "ET"
-        parts = item.split('ET')
+        parts = headlines.split('ET')
         
         # The first part is the date and time, which we add to the dates list
         date_part = parts[0] if len(parts) > 1 else 'No date found'
-        dates.append(date_part.strip())
+        dates+=date_part.strip()
         
         # The second part, if present, is the headline
         title_part = parts[1] if len(parts) > 1 else 'No title found'
-        titles.append(title_part.strip())
+        titles+=title_part.strip()
+        news_links = i.find('a', class_='newsreleaseconsolidatelink')
 
-    news_items = zip(dates, titles, news_urls)
+        # Extract the 'href' attribute from each <a> tag
+        news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
 
-    return render_template('news_index.html', main_text=main_text, img_link=img_link, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
+        # Extract image link
+        img_link=i.find('img')['src'] if i.find('img') else ''
+
+        all_dates.append(dates)
+        all_headlines.append(titles)
+        all_news_urls.append(news_urls)
+        all_img_urls.append(img_link)
+
+
+
+
+
+
+    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
+
+    return render_template('news_index.html', main_text=main_text, img_linkss=img_linkss, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
 
 
 @app.route('/dynamic_article1')
