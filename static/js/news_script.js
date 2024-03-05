@@ -1,4 +1,4 @@
-const API_KEY = "8fff672777a24a39a1ee4de44e0dc49e";
+const API_KEY = "123456789987654321";
 const url = "https://newsapi.org/v2/everything?q=";
 // 8fff672777a24a39a1ee4de44e0dc49e
 window.addEventListener("load", () => fetchNews("India"));
@@ -56,6 +56,26 @@ function onNavItemClick(id) {
     curSelectedNav = navItem;
     curSelectedNav.classList.add("active");
 }
+
+function onNavItemClick1(topic) {
+    // Depending on the topic, the base URL will change.
+    const topicUrls = {
+        'auto':'https://www.prnewswire.com/news-releases/automotive-transportation-latest-news/automotive-transportation-latest-news-list/?page=1&pagesize=100',
+        'media':'https://www.prnewswire.com/news-releases/entertainment-media-latest-news/entertainment-media-latest-news-list/?page=1&pagesize=100',
+        'bt':'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100',// Add more topics and URLs as needed
+        'finance':'https://www.prnewswire.com/news-releases/financial-services-latest-news/financial-services-latest-news-list/?page=1&pagesize=100',
+        'general':'https://www.prnewswire.com/news-releases/general-business-latest-news/general-business-latest-news-list/?page=1&pagesize=100'
+    };
+
+    // Construct the URL for scraping
+    let scrapeUrl = topicUrls[topic] ;
+
+    // Use window.location to navigate to your Flask route with the URL as a query parameter
+    window.location.href = `/scrape?topic=${topic}&url=${encodeURIComponent(scrapeUrl)}`;
+}
+
+
+
 
 const searchButton = document.getElementById("search-button");
 const searchText = document.getElementById("search-text");
