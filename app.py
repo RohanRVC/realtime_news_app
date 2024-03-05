@@ -12,10 +12,6 @@ session = requests.Session()
 session.keep_alive = False
 
 @app.route('/')
-def start():
-    return render_template('index.html')
-
-@app.route('/home')
 def home():
     url = 'https://edition.cnn.com/'
     # r = requests.get(url)
