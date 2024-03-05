@@ -96,6 +96,45 @@ def home():
 
     return render_template('news_index.html', main_text=main_text, img_link=img_link, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
 
+
+@app.route('/dynamic_article1')
+def dynamic_article1():
+    # Get the article URL from the query parameter
+    article_url = request.args.get('url')
+    
+    # Validate the URL before making a request to it, for security reasons
+    if not is_valid_url(article_url):  # You should implement the is_valid_url function
+        abort(400)  # Bad request
+    
+    try:
+        # Fetch the article content
+        # response = requests.get(article_url)
+        response = requests.get(article_url)
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Scrape the title
+        title_text = soup.find('h1',class_="article__title")
+       
+        
+        img_tag=soup.find('img')#,class_='article__featured-image article__featured-image--block')
+        img_urls= img_tag['src'] if img_tag else 'No image found'
+
+        content_tag=soup.find_all('p')
+        content_text=''
+        for i in content_tag:
+            content_text+=i.get_text()
+
+        title=title_text.get_text()
+
+        # Pass scraped data to the template
+        return render_template('dynamic_article1.html', title=title, images=img_urls, content=content_text)
+    except Exception as e:
+        # Log the error e
+        abort(500)  # Internal server error
+
+
+
 @app.route('/dynamic_article')
 def dynamic_article():
     # Get the article URL from the query parameter
