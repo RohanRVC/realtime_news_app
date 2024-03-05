@@ -31,7 +31,7 @@ Copy code
 
 A step-by-step series of examples that tell you how to get a development environment running:
 
-git clone https://github.com/yourusername/realtimenews-livefeed.git
+git clone https://github.com/rohanrvc/realtime_news_app.git
 cd realtimenews-livefeed
 pip install -r requirements.txt
 
@@ -65,8 +65,4 @@ Acknowledgments :clap:
 Hat tip to anyone whose code was used
 Inspiration
 etc
-Happy News Hunting! :mag_right: :newspaper_roll:
-
-sql
-
-Remember to replace placeholders such as `yourusername`, `[Your Live Website Link]`, and any specific versions or commands that apply to your project. The emoji are included to add some visual interest and break up the text, making the README more engaging.
+Happy News Hunting! :mag_right: :newspaper_roll.....
