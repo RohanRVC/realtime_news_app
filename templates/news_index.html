@@ -105,7 +105,7 @@
     
 
     <div class="container">
-        <h1 class="top_25_news_heading">Top 25 News</h1>
+        <h1 class="top_25_news_heading">Top 100 News</h1>
         <div class="row">
             {% for date, title, url in news_items %}
             <div class="col-md-4">
@@ -127,10 +127,7 @@
     
 
 
-<div class="allnews">
-    <h1>ALL NEWS</h1>
-    <!-- Your news items will be inserted here -->
-</div>
+
 
     <main>
         <div class="cards-container container flex" id="cards-container">
@@ -140,7 +137,7 @@
    
 
 
-    <template id="template-news-card">
+    <!-- <template id="template-news-card">
         
         <div class="card">
             <div class="card-header">
@@ -152,7 +149,7 @@
                 <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
             </div>
         </div>
-    </template>
+    </template> -->
 
     <script src="{{ url_for('static', filename='js/news_script.js') }}"></script>
 
