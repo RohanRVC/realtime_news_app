@@ -50,8 +50,8 @@ def home():
     
 
 
-    # url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
-    url3='https://www.prnewswire.com/news-releases/entertainment-media-latest-news/entertainment-media-latest-news-list/?page=1&pagesize=100'
+    url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
+    # url3='https://www.prnewswire.com/news-releases/entertainment-media-latest-news/entertainment-media-latest-news-list/?page=1&pagesize=100'
     r3 = requests.get(url3)
     html_content3 = r3.text
     soup3 = BeautifulSoup(html_content3, 'html.parser')
@@ -76,11 +76,11 @@ def home():
         parts = headlines.split('ET')
         
         # The first part is the date and time, which we add to the dates list
-        date_part = parts[0] if len(parts) > 1 else 'No date found'
+        date_part = parts[0] if len(parts) > 1 else ''
         dates+=date_part.strip()
         
         # The second part, if present, is the headline
-        title_part = parts[1] if len(parts) > 1 else 'No title found'
+        title_part = parts[1] if len(parts) > 1 else ''
         titles+=title_part.strip()
         news_links = i.find('a', class_='newsreleaseconsolidatelink')
 
@@ -103,6 +103,68 @@ def home():
     news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
 
     return render_template('news_index.html', main_text=main_text, img_linkss=img_linkss, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
+
+
+
+@app.route('/scrape')
+def scrape_and_display():
+    topic = request.args.get('topic')
+    url = request.args.get('url')
+
+    # Call the function that scrapes the website content based on the URL
+    r3 = requests.get(url)
+    html_content3 = r3.text
+    soup3 = BeautifulSoup(html_content3, 'html.parser')
+
+
+    
+    div=soup3.find_all('div',class_="row newsCards")
+    result = []
+
+    all_dates=[]
+    all_headlines=[]
+    all_news_urls=[]
+    all_img_urls=[]
+    for i in div:
+        title=i.find('h3')
+        headlines = i.get_text(strip=True) 
+        dates = ''
+        titles = ''
+
+    
+        # Split the string into two parts at the "ET"
+        parts = headlines.split('ET')
+        
+        # The first part is the date and time, which we add to the dates list
+        date_part = parts[0] if len(parts) > 1 else ''
+        dates+=date_part.strip()
+        
+        # The second part, if present, is the headline
+        title_part = parts[1] if len(parts) > 1 else ''
+        titles+=title_part.strip()
+        news_links = i.find('a', class_='newsreleaseconsolidatelink')
+
+        # Extract the 'href' attribute from each <a> tag
+        news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
+
+        # Extract image link
+        img_link=i.find('img')['src'] if i.find('img') else ''
+
+        all_dates.append(dates)
+        all_headlines.append(titles)
+        all_news_urls.append(news_urls)
+        all_img_urls.append(img_link)
+
+
+
+
+
+
+    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
+
+    return render_template('dynamic_news_index.html',news_items=news_items)
+
+
 
 
 @app.route('/dynamic_article1')
@@ -161,7 +223,7 @@ def dynamic_article():
 
         # Scrape the title
         title_element = soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")
-        title_text = title_element.get_text(strip=True) if title_element else 'Title not found'
+        title_text = title_element.get_text(strip=True) if title_element else ''
 
         # Scrape all images
         img_tags = soup.find_all('img')
