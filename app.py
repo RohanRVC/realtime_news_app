@@ -50,7 +50,7 @@ def home():
     
 
 
-    url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/'
+    url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
     r3 = requests.get(url3)
     html_content3 = r3.text
     soup3 = BeautifulSoup(html_content3, 'html.parser')
@@ -69,7 +69,7 @@ def home():
     h=[]
     for i in range(len(headlines)):
         h.append(headlines[i])
-        if i>=24:
+        if i>=99:
             break
 
     news_links = soup3.find_all('a', class_='newsreleaseconsolidatelink')
