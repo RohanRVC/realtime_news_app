@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .news-card {
+            margin-bottom: 20px;
+        }
+        .news-card h5 {
+            margin-bottom: 15px;
+        }
+        .news-card a {
+            text-decoration: none;
+        }
+        .news-card a:hover {
+            text-decoration: underline;
+        }
+        .top_25_news_heading {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="./static/news_style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="./static/assets/logo_.png" alt="company logo">
+            </a>
+            <a href="#" onclick="reload()" class="company-logo"><h2>Home</h2></a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="tech" onclick="onNavItemClick('tech')">Tech</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('ai')">AI</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="hover-link nav-item" id="tech" onclick="onNavItemClick('celebrity')">Celebrity</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hot keywords -->
+
+    <div id="headline-container">
+        <h2>Hot Topics-:</h2>
+        {% for headline in headlines %}
+        <div class="headline">
+            {{ headline }}
+        </div>
+        {% endfor %}
+    </div>
+
+    
+    <!-- 50 50  -->
+
+    <div class="content-container_2">
+        <div class="latest-news">
+            <h1>{{ main_text }}</h1>
+            <img src="{{ img_link }}" alt="Latest News Image">
+            <a href="{{ hyperlink }}"><br>Read more</a>
+        </div>
+        <div class="video-streaming">
+            <h3 class="work-preview_text"><strong>Ava Newsome</strong>
+            <!-- Your video streaming content will go here -->
+            <iframe id="vimeoVideo2" src="https://player.vimeo.com/video/916464145?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=0&loop=1" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              var videoElement = document.getElementById('vimeoVideo2');
+              var player = new Vimeo.Player(videoElement);
+            
+              var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    player.setVolume(1); // Ensure the volume is on
+                    player.play();
+                  } else {
+                    player.pause();
+                  }
+                });
+              }, { threshold: 0.5 }); // Adjust the threshold value based on when you want the video to start playing
+            
+              observer.observe(videoElement);
+            
+              // Listen for the 'ended' event to loop the video
+              player.on('ended', function() {
+                player.play(); // Play the video again
+              });
+            });
+            </script>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <h1 class="top_25_news_heading">Top 25 News</h1>
+        <div class="row">
+            {% for date, title, url in news_items %}
+            <div class="col-md-4">
+                <div class="card news-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ title }}</h5>
+                        <p class="card-text"><small class="text-muted">{{ date }}</small></p>
+                        <a href="/dynamic_article?url={{ url }}" class="btn btn-primary">Read more...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+
+<div class="allnews">
+    <h1>ALL NEWS</h1>
+    <!-- Your news items will be inserted here -->
+</div>
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+   
+
+
+    <template id="template-news-card">
+        
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    <script src="{{ url_for('static', filename='js/news_script.js') }}"></script>
+
+    
+</script></div><script src="eguAIkSUuA1D.net/js/jquery-3.5.1.min.dc5e7f18c8_site%3D65a0a5f2c49162c147a6e634.js" type="text/javascript" crossorigin="anonymous"></script><script src="o1KmWSFUrdG2.com/65a0a5f2c49162c147a6e634/js/fJQGfXortZAa.js" type="text/javascript"></script><script async="" defer="" src="YABWEFEf2oeQ.com/ulUvMv2eEgFL.js"></script><script src="NhAV5RTBF3Wm.com/ajax/libs/gsap/a1zef5TtsVg4.4/Tb698Jts9EQP.js"></script>
+<script src="NhAV5RTBF3Wm.com/ajax/libs/gsap/a1zef5TtsVg4.4/Y9ZHkZI6cUGc.js"></script>
+<script src="M6VSRcCCWRAg.net/gh/timothydesign/scripts%40v1.0.2/variables-color-scroll.js"></script>
+
+<script src="https://unpkg.com/split-type"></script>
+
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+      // Split text into spans
+      let typeSplit = new SplitType("[text-split]", {
+        types: "words, chars",
+        tagName: "span"
+      });
+    
+      // Link timelines to scroll position
+      function createScrollTrigger(triggerElement, timeline) {
+        // Reset tl when scroll out of view past bottom of screen
+        ScrollTrigger.create({
+          trigger: triggerElement,
+          start: "top bottom",
+          onLeaveBack: () => {
+            timeline.progress(0);
+            timeline.pause();
+          }
+        });
+        // Play tl when scrolled into view (60% from top of screen)
+        ScrollTrigger.create({
+          trigger: triggerElement,
+          start: "top 60%",
+          onEnter: () => timeline.play()
+        });
+      }
+    
+      $("[scrub-each-word]").each(function (index) {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: $(this),
+            start: "top 90%",
+            end: "top 40%",
+            scrub: true
+          }
+        });
+        tl.from($(this).find(".word"), { opacity: 0.1, duration: 0.2, ease: "power1.out", stagger: { each: 0.4 } });
+      });
+    
+      // Avoid flash of unstyled content
+      gsap.set("[text-split]", { opacity: 1 });
+    });
+    </script>
+</body>
+</html> 
