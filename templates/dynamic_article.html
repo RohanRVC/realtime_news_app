@@ -33,7 +33,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 30px;
 }
 
 .article-content {
@@ -102,7 +102,7 @@ img:not(:last-child) {
 
 
     <article>
-        <h1>{{ title }}</h1>
+        <h1 style="margin-top: 150px;">{{ title }}</h1>
         {% for img_url in images %}
             <img src="{{ img_url }}" alt="{{ title }}">
         {% endfor %}
