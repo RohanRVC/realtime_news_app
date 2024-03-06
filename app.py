@@ -158,7 +158,7 @@ def scrape_and_display():
 
         # Extract the 'href' attribute from each <a> tag
         news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
-
+        img_link=''
         # Extract image link
         img_tag = i.find('img')  # Find the first <img> tag within element i
         if img_tag:  # If an <img> tag is found
