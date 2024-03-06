@@ -37,11 +37,11 @@
             <a href="/" class="company-logo"><h2>Home</h2></a>
             <div class="nav-links">
                 <ul class="flex">
-                    <li class="hover-link nav-item" id="tech" onclick="onNavItemClick1('auto')">Auto Transportation</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick1('bt')">Business Technology</li>
-                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick1('media')">Entertainment & Media</li>
-                    <li class="hover-link nav-item" id="tech" onclick="onNavItemClick1('finance')">Finance service and Investing</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick1('general')">General Business</li>
+                    <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'auto' }}" id="nav-auto" onclick="onNavItemClick1('auto')">Auto Transportation</li>
+                    <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'bt' }}" id="nav-bt" onclick="onNavItemClick1('bt')">Business Technology</li>
+                    <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'media' }}" id="nav-media" onclick="onNavItemClick1('media')">Entertainment & Media</li>
+                    <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'finance' }}" id="nav-finance" onclick="onNavItemClick1('finance')">Finance service and Investing</li>
+                    <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'general' }}" id="nav-general" onclick="onNavItemClick1('general')">General Business</li>
                 </ul>
             </div>
             <div class="search-bar flex">
@@ -50,12 +50,14 @@
             </div>
         </div>
     </nav>
+    
 
     
     
 
     <div class="container" style="margin-top: 100px;">
         <h1 class="top_25_news_heading">Top 100 News</h1>
+        <h2 class="top_25_news_heading">{{head}}</h2>
         <div class="row">
             {% for date, title, news_url,img_url in news_items %}
             <div class="col-md-4">
