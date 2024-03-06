@@ -88,19 +88,19 @@ def home():
         news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
 
         # Extract image link
-        img_link=i.find('img')['src'] if i.find('img') else ''
+        # img_link=i.find('img')['src'] if i.find('img') else ''
 
         all_dates.append(dates)
         all_headlines.append(titles)
         all_news_urls.append(news_urls)
-        all_img_urls.append(img_link)
+        # all_img_urls.append(img_link)
 
 
 
 
 
 
-    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
+    news_items = zip(all_dates,all_headlines,all_news_urls)#,all_img_urls)
 
     return render_template('news_index.html', main_text=main_text, img_linkss=img_linkss, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
 
@@ -151,19 +151,19 @@ def scrape_and_display():
         news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
 
         # Extract image link
-        img_link=i.find('img')['src'] if i.find('img') else ''
+        # img_link=i.find('img')['src'] if i.find('img') else ''
 
         all_dates.append(dates)
         all_headlines.append(titles)
         all_news_urls.append(news_urls)
-        all_img_urls.append(img_link)
+        # all_img_urls.append(img_link)
 
 
 
 
 
 
-    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
+    news_items = zip(all_dates,all_headlines,all_news_urls)#,all_img_urls)
 
     return render_template('dynamic_news_index.html',head=head,news_items=news_items)
 
