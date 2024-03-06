@@ -108,14 +108,15 @@
     <div class="container">
         <h1 class="top_25_news_heading">Top 100 News</h1>
         <div class="row">
-            {% for date, title, news_url,img_url in news_items %}
+            {% for date, title, news_url in news_items %}
+            <!-- ,img_url -->
             <div class="col-md-4">
                 <div class="card news-card">
                     <div class="card-body">
                         <h5 class="card-title">{{ title }}</h5>
                         <p class="card-text"><small class="text-muted">{{ date }}</small></p>
                         <a href="/dynamic_article?url={{ news_url }}" class="btn btn-primary">Read more...</a>
-                        <img src="{{ img_url }}" alt="Latest News Image">
+                        <!-- <img src="{{ img_url }}" alt="Latest News Image"> -->
                     </div>
                 </div>
             </div>
