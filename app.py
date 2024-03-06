@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,abort
-import requests
+import requests,time
 from bs4 import BeautifulSoup
 from random import shuffle
 
@@ -24,7 +24,7 @@ def home():
         if i.get_text().strip() != '':
             ribbon_container_headline.append(i.get_text().strip())
     shuffle(ribbon_container_headline) 
-
+    time.sleep(1)
     url = 'https://techcrunch.com/'
     r = requests.get(url)
     html_content = r.text
@@ -49,7 +49,7 @@ def home():
         hyperlink = a_tag['href']
     
 
-
+    time.sleep(1)
     url3 = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/?page=1&pagesize=100'
     # url3='https://www.prnewswire.com/news-releases/entertainment-media-latest-news/entertainment-media-latest-news-list/?page=1&pagesize=100'
     r3 = requests.get(url3)
@@ -89,18 +89,26 @@ def home():
 
         # Extract image link
         # img_link=i.find('img')['src'] if i.find('img') else ''
+        img_tag = i.find('img')  # Find the first <img> tag within element i
+        if img_tag:  # If an <img> tag is found
+                img_src = img_tag.get('src')  # Safely get the 'src' attribute value, returns None if 'src' is not present
+                if img_src:  # If 'src' attribute exists
+                    img_link = img_src  # Assign its value to img_link
+                else:
+                    img_link = ""  # Handle the case where 'src' does not exist
+
 
         all_dates.append(dates)
         all_headlines.append(titles)
         all_news_urls.append(news_urls)
-        # all_img_urls.append(img_link)
+        all_img_urls.append(img_link)
 
 
 
 
 
 
-    news_items = zip(all_dates,all_headlines,all_news_urls)#,all_img_urls)
+    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
 
     return render_template('news_index.html', main_text=main_text, img_linkss=img_linkss, hyperlink=hyperlink, headlines=ribbon_container_headline,news_items=news_items)
 
@@ -151,19 +159,26 @@ def scrape_and_display():
         news_urls = 'https://www.prnewswire.com'+news_links['href'] if news_links['href'] else None
 
         # Extract image link
-        # img_link=i.find('img')['src'] if i.find('img') else ''
+        img_tag = i.find('img')  # Find the first <img> tag within element i
+        if img_tag:  # If an <img> tag is found
+                img_src = img_tag.get('src')  # Safely get the 'src' attribute value, returns None if 'src' is not present
+                if img_src:  # If 'src' attribute exists
+                    img_link = img_src  # Assign its value to img_link
+                else:
+                    img_link = ""  # Handle the case where 'src' does not exist
+
 
         all_dates.append(dates)
         all_headlines.append(titles)
         all_news_urls.append(news_urls)
-        # all_img_urls.append(img_link)
+        all_img_urls.append(img_link)
 
 
 
 
 
 
-    news_items = zip(all_dates,all_headlines,all_news_urls)#,all_img_urls)
+    news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
 
     return render_template('dynamic_news_index.html',head=head,news_items=news_items)
 
@@ -227,7 +242,7 @@ def dynamic_article():
         # Scrape the title
         title_element = soup.find("h1") if soup.find('h1') else soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")
         title_text = title_element.get_text(strip=True) if title_element else ''
-        
+
         # Scrape all images
         img_tags = soup.find_all('img')
         img_urls = [img['src'] for img in img_tags if 'src' in img.attrs and img['src'].startswith('http') and 'thumbnail' in img['src']]
