@@ -187,11 +187,11 @@ def dynamic_article1():
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Scrape the title
-        title_text = soup.find('h1',class_="article__title")
+        title_text = soup.find('h1',class_="article__title") if soup.find('h1',class_="article__title") else soup.find('h1')
        
         
         img_tag=soup.find('img')#,class_='article__featured-image article__featured-image--block')
-        img_urls= img_tag['src'] if img_tag else 'No image found'
+        img_urls= img_tag['src'] if img_tag else ''
 
         content_tag=soup.find_all('p')
         content_text=''
@@ -225,9 +225,9 @@ def dynamic_article():
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Scrape the title
-        title_element = soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")
+        title_element = soup.find("h1") if soup.find('h1') else soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")
         title_text = title_element.get_text(strip=True) if title_element else ''
-
+        
         # Scrape all images
         img_tags = soup.find_all('img')
         img_urls = [img['src'] for img in img_tags if 'src' in img.attrs and img['src'].startswith('http') and 'thumbnail' in img['src']]
