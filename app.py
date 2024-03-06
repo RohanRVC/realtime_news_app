@@ -120,6 +120,9 @@ def scrape_and_display():
     
     div=soup3.find_all('div',class_="row newsCards")
     result = []
+    
+    head=soup3.find("h1")
+    head=head.get_text()
 
     all_dates=[]
     all_headlines=[]
@@ -162,7 +165,7 @@ def scrape_and_display():
 
     news_items = zip(all_dates,all_headlines,all_news_urls,all_img_urls)
 
-    return render_template('dynamic_news_index.html',news_items=news_items)
+    return render_template('dynamic_news_index.html',head=head,news_items=news_items)
 
 
 
