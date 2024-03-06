@@ -86,11 +86,11 @@ img:not(:last-child) {
         <a href="/" class="company-logo"><h2>Home</h2></a>
         <div class="nav-links">
             <ul class="flex">
-                <li class="hover-link nav-item" id="tech" onclick="onNavItemClick1('auto')">Auto Transportation</li>
-                <li class="hover-link nav-item" id="politics" onclick="onNavItemClick1('bt')">Business Technology</li>
-                <li class="hover-link nav-item" id="finance" onclick="onNavItemClick1('media')">Entertainment & Media</li>
-                <li class="hover-link nav-item" id="tech" onclick="onNavItemClick1('finance')">Finance service and Investing</li>
-                <li class="hover-link nav-item" id="politics" onclick="onNavItemClick1('general')">General Business</li>
+                <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'auto' }}" id="nav-auto" onclick="onNavItemClick1('auto')">Auto Transportation</li>
+                <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'bt' }}" id="nav-bt" onclick="onNavItemClick1('bt')">Business Technology</li>
+                <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'media' }}" id="nav-media" onclick="onNavItemClick1('media')">Entertainment & Media</li>
+                <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'finance' }}" id="nav-finance" onclick="onNavItemClick1('finance')">Finance service and Investing</li>
+                <li class="hover-link nav-item {{ 'active-nav-item' if active_topic == 'general' }}" id="nav-general" onclick="onNavItemClick1('general')">General Business</li>
             </ul>
         </div>
         <div class="search-bar flex">
@@ -99,6 +99,7 @@ img:not(:last-child) {
         </div>
     </div>
 </nav>
+
 
 
     <article>
