@@ -13,7 +13,6 @@ session.keep_alive = False
 
 @app.route('/')
 def home():
-    time.sleep(1)
     url = 'https://edition.cnn.com/'
     # r = requests.get(url)
     r = session.get(url)
@@ -90,6 +89,7 @@ def home():
 
         # Extract image link
         # img_link=i.find('img')['src'] if i.find('img') else ''
+        img_link=''
         img_tag = i.find('img')  # Find the first <img> tag within element i
         if img_tag:  # If an <img> tag is found
                 img_src = img_tag.get('src')  # Safely get the 'src' attribute value, returns None if 'src' is not present
