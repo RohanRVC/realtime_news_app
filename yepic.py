@@ -8,7 +8,7 @@ headers = {
 json_data = { 
     'slides': [
         {
-            'overlays': [
+            'overlays': [ 
                 {
                     'type': 'AvatarOverlay',
                     'assetId': '1a901a33-8783-418e-af6a-a66dae945673',
