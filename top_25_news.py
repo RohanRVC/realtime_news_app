@@ -21,7 +21,7 @@ headlines = [tag.get_text(strip=True) for tag in headline_tags]
 h=[]
 for i in range(len(headlines)):
     h.append(headlines[i])
-    if i>=24:
+    if i>=24: 
         break
 
 news_links = soup.find_all('a', class_='newsreleaseconsolidatelink')
