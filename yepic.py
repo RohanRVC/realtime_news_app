@@ -23,7 +23,7 @@ json_data = {
         },
     ],
     'videoTitle': 'My first video',
-}
+} 
  
 response = requests.post('https://api.yepic.ai/v1/videos', headers=headers, json=json_data)
 print(response)
