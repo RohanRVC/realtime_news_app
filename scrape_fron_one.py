@@ -27,7 +27,7 @@ for i in img_urls:
         new_link.append(i)
 
 text=''
-for  i in soup.find_all('div',class_='col-lg-10 col-lg-offset-1'):
+for  i in soup.find_all('div',class_='col-lg-10 col-lg-offset-1'): 
         
         text+=i.get_text()
         if "SOURCE"  in i.get_text():
