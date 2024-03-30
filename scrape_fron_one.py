@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup  
 
 url = 'https://www.prnewswire.com/news-releases/flash-news-okx-ventures-announces-series-a-investment-in-taiko-a-decentralized-ethereum-equivalent-zk-rollup-302076975.html'
 url='https://www.prnewswire.com/news-releases/southwest-orthopaedic-specialists-pllc-notifies-of-integris-health-data-security-incident-302077690.html'
