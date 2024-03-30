@@ -25,7 +25,7 @@ def home():
             ribbon_container_headline.append(i.get_text().strip())
     shuffle(ribbon_container_headline) 
     time.sleep(1)
-    url = 'https://techcrunch.com/'
+    url = 'https://techcrunch.com/' 
     r = requests.get(url)
     html_content = r.text
     soup = BeautifulSoup(html_content, 'html.parser')
