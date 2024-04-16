@@ -10,7 +10,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 # container__headline-text
 title_element = soup.find('div', class_="col-sm-8 col-vcenter col-xs-12") 
      
-    # Extract the text from the title element
+    # Extract the text from the title element 
 title_text = title_element.get_text(strip=True) if title_element else 'Title not found'
     
     # Print the title text 
