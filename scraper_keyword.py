@@ -11,7 +11,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
  
 ribbon_container_headline=[]
  
-for i in soup.find_all('div', class_='container__headline container_ribbon__headline'): 
+for i in soup.find_all('div', class_='container__headline container_ribbon__headline'):  
     # print(i.get_text())
     if i!='\n':
         ribbon_container_headline.append(i.get_text())
