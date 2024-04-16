@@ -15,7 +15,7 @@ for i in soup.find_all('div', class_='container__headline container_ribbon__head
     # print(i.get_text())
     if i!='\n':
         ribbon_container_headline.append(i.get_text())
-
+ 
 ribbon_container_headline = [item.strip() for item in ribbon_container_headline]
 
 print(ribbon_container_headline)
