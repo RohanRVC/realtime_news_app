@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from random import shuffle    
  
 app = Flask(__name__)  
-   
+    
  
 # Create a session object   
 session = requests.Session()    
