@@ -20,3 +20,4 @@ ribbon_container_headline = [item.strip() for item in ribbon_container_headline]
 
 print(ribbon_container_headline)
  
+ 
