@@ -19,5 +19,3 @@ for i in soup.find_all('div', class_='container__headline container_ribbon__head
 ribbon_container_headline = [item.strip() for item in ribbon_container_headline]
 
 print(ribbon_container_headline)
- 
- 
