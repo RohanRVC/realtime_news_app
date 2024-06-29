@@ -2,6 +2,12 @@
 
 ## Link-: https://realtime-news-app.onrender.com
 
+![image](https://github.com/RohanRVC/realtime_news_app/assets/80825254/d04938f8-2c08-49b2-9459-379d512471a7)
+![image](https://github.com/RohanRVC/realtime_news_app/assets/80825254/5f2ae5a5-51b5-4078-9fba-6e1de263bf87)
+![image](https://github.com/RohanRVC/realtime_news_app/assets/80825254/5cc366ee-c8aa-4c08-9ed5-d479bf70ff1a)
+
+
+
 Welcome to the RealTime News Live Feed repository! This platform is your gateway to the latest and greatest in global news, capturing the pulse of the world as events unfold. Our service provides a live feed of top-trending stories and a collection of the top 100 news pieces in real-time, across various categories.
 
 ## Features :sparkles:
