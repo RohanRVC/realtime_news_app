@@ -15,7 +15,7 @@ session.keep_alive = False
 def home():   
     url = 'https://edition.cnn.com/' 
     # r = requests.get(url) 
-    r = session.get(url) 
+    r = session.get(url)  
     html_content = r.text 
     soup = BeautifulSoup(html_content, 'html.parser') 
  
