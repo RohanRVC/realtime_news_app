@@ -24,7 +24,7 @@ img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
 new_link=[]
 for i in img_urls:
     if i.startswith('htt') and i.endswith('nail'):
-        new_link.append(i)
+        new_link.append(i) 
 
 text=''
 for  i in soup.find_all('div',class_='col-lg-10 col-lg-offset-1'): 
