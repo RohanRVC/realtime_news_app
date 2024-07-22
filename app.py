@@ -7,7 +7,7 @@ app = Flask(__name__)
         
    
 # Create a session object       
-session = requests.Session()          
+session = requests.Session()           
 # Set 'keep_alive' to False        
 session.keep_alive = False     
      
