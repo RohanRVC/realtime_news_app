@@ -10,7 +10,7 @@ app = Flask(__name__)
 session = requests.Session()           
 # Set 'keep_alive' to False        
 session.keep_alive = False      
-     
+      
 @app.route('/')   
 def home():      
     url = 'https://edition.cnn.com/'  
