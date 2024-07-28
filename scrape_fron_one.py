@@ -16,7 +16,7 @@ title_text = title_element.get_text(strip=True) if title_element else 'Title not
     # Print the title text  
 # print(title_text)  
 
-# Extract the URL from the 'src' attribute of the <img> tag 
+# Extract the URL from the 'src' attribute of the <img> tag  
 img_tags = soup.find_all('img') 
 # Extract the 'src' attribute from each <img> tag
 img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
