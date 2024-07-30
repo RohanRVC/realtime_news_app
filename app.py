@@ -11,7 +11,7 @@ session = requests.Session()
 # Set 'keep_alive' to False        
 session.keep_alive = False       
       
-@app.route('/')   
+@app.route('/')    
 def home():      
     url = 'https://edition.cnn.com/'   
     # r = requests.get(url)   
