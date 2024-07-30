@@ -12,7 +12,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 headline_tags = soup.find_all('h3') 
 
  
-img_tags = soup.find_all('img') 
+img_tags = soup.find_all('img')  
 # Extract the 'src' attribute from each <img> tag 
 img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
  
