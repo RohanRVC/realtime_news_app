@@ -22,7 +22,7 @@ h=[]
 for i in range(len(headlines)):
     h.append(headlines[i])
     if i>=24:  
-        break
+        break 
 
 news_links = soup.find_all('a', class_='newsreleaseconsolidatelink')
 
