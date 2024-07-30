@@ -15,7 +15,7 @@ headline_tags = soup.find_all('h3')
 img_tags = soup.find_all('img')  
 # Extract the 'src' attribute from each <img> tag 
 img_urls = [img['src'] for img in img_tags if 'src' in img.attrs] 
- 
+  
 # Extract the text from each headline tag.
 headlines = [tag.get_text(strip=True) for tag in headline_tags]
 h=[]
