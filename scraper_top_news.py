@@ -7,7 +7,7 @@ r = requests.get(url)
 html_content = r.text
 soup = BeautifulSoup(html_content, 'html.parser')  
 # print(soup)  
-# container__headline-text    
+# container__headline-text     
 
 li=[] 
 main_text=''
