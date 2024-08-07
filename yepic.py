@@ -9,7 +9,7 @@ json_data = {
     'slides': [ 
         {
             'overlays': [ 
-                { 
+                {  
                     'type': 'AvatarOverlay', 
                     'assetId': '1a901a33-8783-418e-af6a-a66dae945673', 
                     'voiceId': 'en-US-JennyMultilingualNeural', 
