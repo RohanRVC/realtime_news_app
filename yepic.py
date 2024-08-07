@@ -14,7 +14,7 @@ json_data = {
                     'assetId': '1a901a33-8783-418e-af6a-a66dae945673', 
                     'voiceId': 'en-US-JennyMultilingualNeural', 
                     'script': "Well done! This is your first video using Yepic's API.", 
-                    'xPosition': 448,
+                    'xPosition': 448, 
                     'yPosition': 56,
                     'width': 1024,
                     'height': 1024,
