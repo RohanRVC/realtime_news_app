@@ -20,7 +20,7 @@ json_data = {
                     'height': 1024,
                 },
             ],  
-        },
+        }, 
     ],
     'videoTitle': 'My first video',
 } 
