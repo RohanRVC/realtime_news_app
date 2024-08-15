@@ -21,7 +21,7 @@ def home():
     
     ribbon_container_headline = [] 
     for i in soup.find_all('div', class_='container__headline container_ribbon__headline'):
-        if i.get_text().strip() != '': 
+        if i.get_text().strip() != '':  
             ribbon_container_headline.append(i.get_text().strip()) 
     shuffle(ribbon_container_headline) 
     time.sleep(1) 
