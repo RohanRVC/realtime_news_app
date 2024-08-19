@@ -5,7 +5,7 @@ url = 'https://www.prnewswire.com/news-releases/flash-news-okx-ventures-announce
 url='https://www.prnewswire.com/news-releases/southwest-orthopaedic-specialists-pllc-notifies-of-integris-health-data-security-incident-30207769 0.html'  
 r = requests.get(url)
 html_content = r.text  
-soup = BeautifulSoup(html_content, 'html.parser')    
+soup = BeautifulSoup(html_content, 'html.parser')     
 # print(soup)       
 # container__headline-text   
 title_element = soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")     
