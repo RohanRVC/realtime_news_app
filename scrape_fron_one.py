@@ -14,7 +14,7 @@ title_element = soup.find('div', class_="col-sm-8 col-vcenter col-xs-12")
 title_text = title_element.get_text(strip=True) if title_element else 'Title not found'   
        
     # Print the title text   
-# print(title_text)  
+# print(title_text)   
 
 # Extract the URL from the 'src' attribute of the <img> tag  
 img_tags = soup.find_all('img') 
