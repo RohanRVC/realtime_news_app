@@ -9,7 +9,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 # print(soup) 
 # container__headline-text
   
-ribbon_container_headline=[]
+ribbon_container_headline=[] 
   
 for i in soup.find_all('div', class_='container__headline container_ribbon__headline'):  
     # print(i.get_text())
