@@ -1,7 +1,7 @@
 from flask import Flask, render_template,request,abort  
 import requests,time    
 from bs4 import BeautifulSoup  
-from random import shuffle              
+from random import shuffle               
         
 app = Flask(__name__)      
              
