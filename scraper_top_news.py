@@ -13,7 +13,7 @@ li=[]
 main_text='' 
 img=[] 
 for i in soup.find_all('a', class_="post-block__title__link"): 
-    # print(i.get_text())    
+    # print(i.get_text())     
     main_text+=i.get_text()
     break   
 img_tag = soup.find('img')
