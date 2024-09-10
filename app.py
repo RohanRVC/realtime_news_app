@@ -17,7 +17,7 @@ def home():
     # r = requests.get(url)     
     r = session.get(url)  
     html_content = r.text        
-    soup = BeautifulSoup(html_content, 'html.parser')      
+    soup = BeautifulSoup(html_content, 'html.parser')       
     
     ribbon_container_headline = []  
     for i in soup.find_all('div', class_='container__headline container_ribbon__headline'): 
