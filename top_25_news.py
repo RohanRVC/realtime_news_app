@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 # import pandas as pd
      
-url = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/'  
+url = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/'   
 r = requests.get(url)       
 html_content = r.text       
 soup = BeautifulSoup(html_content, 'html.parser')    
