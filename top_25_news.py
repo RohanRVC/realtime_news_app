@@ -9,7 +9,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
                         
          
 # To extract the headline, assuming it's within an <h3> tag.      
-headline_tags = soup.find_all('h3')              
+headline_tags = soup.find_all('h3')               
          
    
 img_tags = soup.find_all('img')    
