@@ -8,7 +8,7 @@ html_content = r.text
 soup = BeautifulSoup(html_content, 'html.parser')                                                                      
                 
                
-# To extract the headline, assuming it's within an <h3> tag.           
+# To extract the headline, assuming it's within an <h3> tag.            
 headline_tags = soup.find_all('h3')                      
           
    
