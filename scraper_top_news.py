@@ -18,7 +18,7 @@ for i in soup.find_all('a', class_="post-block__title__link"):
     break   
 img_tag = soup.find('img')
 img_link = img_tag['src'] if img_tag else 'No image found' 
-a_tag = soup.find('a', class_='post-block__title__link')
+a_tag = soup.find('a', class_='post-block__title__link') 
 # If there's no class to search by, just find any <a> tag within the <figure>
 if not a_tag:
     figure = soup.find('figure', class_='post-block_media')
