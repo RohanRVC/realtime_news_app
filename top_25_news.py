@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 url = 'https://www.prnewswire.com/news-releases/business-technology-latest-news/business-technology-latest-news-list/'                                          
 r = requests.get(url)                                                                          
 html_content = r.text                                                                                            
-soup = BeautifulSoup(html_content, 'html.parser')                                                                          
+soup = BeautifulSoup(html_content, 'html.parser')                                                                           
                    
                 
 # To extract the headline, assuming it's within an <h3> tag.              
