@@ -23,7 +23,7 @@ a_tag = soup.find('a', class_='post-block__title__link')
 if not a_tag:
     figure = soup.find('figure', class_='post-block_media')
     if figure:
-        a_tag = figure.find('a')
+        a_tag = figure.find('a') 
 
 # Extract the 'href' attribute
 if a_tag and 'href' in a_tag.attrs:
