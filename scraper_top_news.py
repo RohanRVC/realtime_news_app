@@ -32,7 +32,7 @@ else:
     hyperlink = 'No hyperlink found'
 
 
-time_element = soup.find('span', class_='article__byline__meta__slash')
+time_element = soup.find('span', class_='article__byline__meta__slash') 
 # datetime_attribute = time_element['datetime'] if time_element else 'No datetime found'
 # date_text = time_element.text if time_element else 'No date text found'
 # print("Datetime attribute:", datetime_attribute)
