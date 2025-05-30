@@ -19,7 +19,7 @@ img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
 # Extract the text from each headline tag.    
 headlines = [tag.get_text(strip=True) for tag in headline_tags] 
 h=[] 
-for i in range(len(headlines)):
+for i in range(len(headlines)): 
     h.append(headlines[i]) 
     if i>=24:  
         break 
