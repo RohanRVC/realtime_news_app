@@ -12,7 +12,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 li=[]      
 main_text=''    
 img=[]    
-for i in soup.find_all('a', class_="post-block__title__link"):   
+for i in soup.find_all('a', class_="post-block__title__link"):    
     # print(i.get_text())      
     main_text+=i.get_text()  
     break 
