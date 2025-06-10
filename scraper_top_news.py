@@ -10,7 +10,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 # container__headline-text         
      
 li=[]        
-main_text=''    
+main_text=''     
 img=[]    
 for i in soup.find_all('a', class_="post-block__title__link"):    
     # print(i.get_text())      
